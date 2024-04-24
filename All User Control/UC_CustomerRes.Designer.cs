@@ -197,9 +197,9 @@
             this.label7.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label7.Location = new System.Drawing.Point(38, 715);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 17);
+            this.label7.Size = new System.Drawing.Size(104, 17);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Giới tính";
+            this.label7.Text = "Ngày đăng ký";
             // 
             // txtDOB
             // 

@@ -26,6 +26,7 @@ namespace HotelManagement
         {
             uC_AddRoom1.Visible = false;
             uC_CustomerRes1.Visible = false;
+            uC_CheckOut1.Visible = false;
             btnAddRoom.PerformClick();
         }
 
@@ -41,6 +42,13 @@ namespace HotelManagement
             PanelMoving.Left = btnCustomerRes.Left + 60;
             uC_CustomerRes1.Visible = true;
             uC_CustomerRes1.BringToFront();
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            PanelMoving.Left = btnCheckout.Left + 60;
+            uC_CheckOut1.Visible = true;
+            uC_CheckOut1.BringToFront();
         }
     }
 }
