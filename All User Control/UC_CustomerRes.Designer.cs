@@ -320,6 +320,7 @@
             this.txtBed.Size = new System.Drawing.Size(458, 36);
             this.txtBed.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtBed.TabIndex = 20;
+            this.txtBed.SelectedIndexChanged += new System.EventHandler(this.txtBed_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -349,6 +350,7 @@
             this.txtRoomType.Size = new System.Drawing.Size(458, 36);
             this.txtRoomType.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtRoomType.TabIndex = 22;
+            this.txtRoomType.SelectedIndexChanged += new System.EventHandler(this.txtRoomType_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -375,6 +377,7 @@
             this.txtRoomNo.Size = new System.Drawing.Size(458, 36);
             this.txtRoomNo.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtRoomNo.TabIndex = 24;
+            this.txtRoomNo.SelectedIndexChanged += new System.EventHandler(this.txtRoomNo_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -401,7 +404,7 @@
             this.txtPrice.Location = new System.Drawing.Point(1160, 526);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PasswordChar = '\0';
-            this.txtPrice.PlaceholderText = "Enter ID";
+            this.txtPrice.PlaceholderText = "";
             this.txtPrice.ReadOnly = true;
             this.txtPrice.SelectedText = "";
             this.txtPrice.Size = new System.Drawing.Size(458, 73);
@@ -437,6 +440,7 @@
             this.btnAllotCustomer.Size = new System.Drawing.Size(180, 45);
             this.btnAllotCustomer.TabIndex = 27;
             this.btnAllotCustomer.Text = "Thêm khách hàng";
+            this.btnAllotCustomer.Click += new System.EventHandler(this.btnAllotCustomer_Click);
             // 
             // guna2Elipse1
             // 
@@ -475,6 +479,8 @@
             this.Controls.Add(this.label1);
             this.Name = "UC_CustomerRes";
             this.Size = new System.Drawing.Size(1882, 852);
+            this.Load += new System.EventHandler(this.UC_CustomerRes_Load);
+            this.Leave += new System.EventHandler(this.UC_CustomerRes_Leave);
             this.ResumeLayout(false);
             this.PerformLayout();
 
