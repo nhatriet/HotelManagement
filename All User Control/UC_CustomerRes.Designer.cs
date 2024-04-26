@@ -182,9 +182,9 @@
             this.txtGender.ForeColor = System.Drawing.Color.Black;
             this.txtGender.ItemHeight = 30;
             this.txtGender.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
+            "Male",
+            "Female",
+            "Other"});
             this.txtGender.Location = new System.Drawing.Point(41, 635);
             this.txtGender.Name = "txtGender";
             this.txtGender.Size = new System.Drawing.Size(458, 36);
@@ -312,9 +312,9 @@
             this.txtBed.ForeColor = System.Drawing.Color.Black;
             this.txtBed.ItemHeight = 30;
             this.txtBed.Items.AddRange(new object[] {
-            "Single",
-            "Double",
-            "Triple"});
+            "Giuong don",
+            "Giuong doi",
+            "Giuong ba"});
             this.txtBed.Location = new System.Drawing.Point(1160, 148);
             this.txtBed.Name = "txtBed";
             this.txtBed.Size = new System.Drawing.Size(458, 36);
