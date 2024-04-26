@@ -32,10 +32,6 @@ namespace HotelManagement.All_User_Control
             }
             sdr.Close();
         }
-        private void UC_CustomerRes_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAllotCustomer_Click(object sender, EventArgs e)
         {

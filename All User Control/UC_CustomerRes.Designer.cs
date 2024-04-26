@@ -479,7 +479,6 @@
             this.Controls.Add(this.label1);
             this.Name = "UC_CustomerRes";
             this.Size = new System.Drawing.Size(1882, 852);
-            this.Load += new System.EventHandler(this.UC_CustomerRes_Load);
             this.Leave += new System.EventHandler(this.UC_CustomerRes_Leave);
             this.ResumeLayout(false);
             this.PerformLayout();
