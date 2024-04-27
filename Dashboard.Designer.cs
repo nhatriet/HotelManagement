@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMinisize = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.btnCustomerDetail = new Guna.UI2.WinForms.Guna2Button();
@@ -70,22 +69,6 @@
             this.btnExit.Size = new System.Drawing.Size(34, 35);
             this.btnExit.TabIndex = 0;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnMinisize
-            // 
-            this.btnMinisize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMinisize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMinisize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMinisize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMinisize.FillColor = System.Drawing.Color.SlateBlue;
-            this.btnMinisize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMinisize.ForeColor = System.Drawing.Color.White;
-            this.btnMinisize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinisize.Image")));
-            this.btnMinisize.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnMinisize.Location = new System.Drawing.Point(3, 53);
-            this.btnMinisize.Name = "btnMinisize";
-            this.btnMinisize.Size = new System.Drawing.Size(34, 35);
-            this.btnMinisize.TabIndex = 1;
             // 
             // panel1
             // 
@@ -278,7 +261,6 @@
             this.Controls.Add(this.PanelMoving);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnMinisize);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
@@ -295,7 +277,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button btnExit;
-        private Guna.UI2.WinForms.Guna2Button btnMinisize;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button btnAddRoom;
         private System.Windows.Forms.Panel panel2;

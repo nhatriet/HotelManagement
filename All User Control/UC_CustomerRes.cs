@@ -20,7 +20,7 @@ namespace HotelManagement.All_User_Control
         {
             InitializeComponent();
         }
-        public void setComboBox(String qurery, ComboBox combo)
+        public void setComboBox(String query, ComboBox combo)
         {
             SqlDataReader sdr = fn.getForCombo(query);
             while (sdr.Read())
@@ -31,37 +31,36 @@ namespace HotelManagement.All_User_Control
                 } 
             }
             sdr.Close();
+            return;
         }
 
         private void btnAllotCustomer_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "" && txtPhone.Text != "" && txtNationality.Text != "" && txtGender.Text != "" && txtDOB.Text != "" && txtIDProof.Text != "" && txtAddress.Text != "" && txtCheckin.Text != "" && txtPrice.Text != "")
+            if (txtName.Text != "" && txtContact.Text != "" && txtNationality.Text != "" && txtGender.Text != "" && txtDOB.Text != "" && txtIDProof.Text != "" && txtAddress.Text != "" && txtCheckin.Text != "" && txtPrice.Text != "")
             {
                 String name = txtName.Text;
-                Int64 mobile = Int64.Parse(txtPhone.Text);
-                String nationality = txtNationality.Text;
+                Int64 mobile = Int64.Parse(txtContact.Text);
+                String national = txtNationality.Text;
                 String gender = txtGender.Text;
                 String dob = txtDOB.Text;
                 String idproof = txtIDProof.Text;
                 String address = txtAddress.Text;
                 String checkin = txtCheckin.Text;
-
-                query = "insert into customer (cname, mobile, nationality, gender, dob, idproof, address, checkin, roomid) values " +
-                    "('" + name + "'," + mobile + ",'" + nationality + "', '" + gender + "','" + dob + "','" + idproof + "','" + address + "','" + checkin + "','" + rid + ") update rooms set booked = 'YES' where roomNo = '" + txtRoomNo.Text + "'";
+                
+                query = "insert into customer (cname, mobile, nationality, gender, dob, idproof, address, checkin, roomid) values ('" + name + "'," + mobile + ",'" + national + "', '" + gender + "','" + dob + "','" + idproof + "','" + address + "','" + checkin + "'," + rid + ") update rooms set booked = 'YES' where roomNo = '" + txtRoomNo.Text + "'";
                 fn.setData(query, "Số phòng " + txtRoomNo.Text + " đăng ký khách hàng thành công");
                 clearAll();
             }
             else
             {
                 MessageBox.Show("Xin vui lòng điền đầy đủ thông tin!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
         }
 
         public void clearAll()
         {
             txtName.Clear();
-            txtPhone.Clear();
+            txtContact.Clear();
             txtNationality.Clear();
             txtGender.SelectedIndex = -1;
             txtDOB.ResetText();
