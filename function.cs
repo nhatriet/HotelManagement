@@ -11,19 +11,11 @@ namespace HotelManagement
 {
     internal class function
     {
-        protected SqlConnection getConnection()
-        {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source=MSI\\SQLEXPRESS;Initial Catalog=HotelManagement;Integrated Security=True";
-            return con;
-        }
-
+        private string connectionString = "Data Source=EDGYN\\MSSQLSERVER01;Initial Catalog=HotelManagement;Integrated Security=True";
         public DataSet getData(String query)
         {
-            SqlConnection con = getConnection();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = query;
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, connection);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -32,24 +24,20 @@ namespace HotelManagement
 
         public void setData(String query, String message)
         {
-            SqlConnection con = getConnection();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            con.Open();
-            cmd.CommandText= query;
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, connection);
+            connection.Open();
             cmd.ExecuteNonQuery();
-            con.Close();
+            connection.Close();
 
             MessageBox.Show(message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public SqlDataReader getForCombo(String query)
         {
-            SqlConnection con = getConnection();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            con.Open();
-            cmd = new SqlCommand(query, con);
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, connection);
+            connection.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
             return sdr;
         }
