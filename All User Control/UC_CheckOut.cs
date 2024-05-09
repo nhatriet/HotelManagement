@@ -21,17 +21,17 @@ namespace HotelManagement.All_User_Control
 
         private void UC_CheckOut_Load(object sender, EventArgs e)
         {
-            query = "select customer.cid, customer.cname, customer.mobile, customer.nationality, customer.gender, customer.dob, customer.idproof, customer.address, customer.checkindate, rooms.roomNo, roomtypes.typedescription, roomtypes.numbersofbed, roomtypes.price" +
-                " from customer inner join rooms on customer.roomid = rooms.roomid inner join room_types on rooms.roomid = room_types.roomid inner join roomtypes on room_types.typeid = roomtypes.typeid" +
-                " where ischeckedout = 0";
+            query = "select customer.cid, customer.cname, customer.mobile, customer.nationality, customer.gender, customer.dob, customer.idproof, customer.address, rooms.roomNo, roomtypes.typedescription, roomtypes.numbersofbed, roomtypes.price" +
+                " from customer inner join rooms on customer.roomid = rooms.roomid inner join roomtypes on roomtypes.typeid = rooms.typeid inner join book on customer.cid = book.cid" +
+                " where book.ischeckedout = 0";
             DataSet ds = fn.getData(query);
             dgwCheckOut.DataSource = ds.Tables[0];
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            query = "select customer.cid, customer.cname, customer.mobile, customer.nationality, customer.gender, customer.dob, customer.idproof, customer.address, customer.checkindate, rooms.roomNo, roomtypes.typedescription, roomtypes.numbersofbed, roomtypes.price" +
-                " from customer inner join rooms on customer.roomid = rooms.roomid inner join room_types on rooms.roomid = room_types.roomid inner join roomtypes on room_types.typeid = roomtypes.typeid" +
+            query = "select customer.cid, customer.cname, customer.mobile, customer.nationality, customer.gender, customer.dob, customer.idproof, customer.address, rooms.roomNo, roomtypes.typedescription, roomtypes.numbersofbed, roomtypes.price" +
+                " from customer inner join rooms on customer.roomid = rooms.roomid inner join roomtypes on roomtypes.typeid = rooms.typeid inner join book on customer.cid = book.cid" +
                 " where cname like '" + txtName.Text + "' and ischeckedout = 0";
             DataSet ds = fn.getData(query);
             dgwCheckOut.DataSource = ds.Tables[0];
@@ -56,7 +56,7 @@ namespace HotelManagement.All_User_Control
                 if (MessageBox.Show ("Bạn có chắc chắn không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     String cdate = txtCheckOutDate.Text;
-                    query = "update customer set ischeckedout = 1, checkout = '" + cdate + "' where cid = " + id + " update rooms set booked = 0 where roomNo =  '" + txtRoom.Text + "'";
+                    query = "update book set ischeckedout = 1, checkout = '" + cdate + "' where cid = " + id + " update rooms set booked = 0 where roomNo =  '" + txtRoom.Text + "'";
                     fn.setData(query, "Thanh toán thành công");
                     UC_CheckOut_Load(this, null);
                     clearAll();

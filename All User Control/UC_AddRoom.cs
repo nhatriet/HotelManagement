@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,13 @@ namespace HotelManagement.All_User_Control
                     "('" + roomno + "','" + type + "', '" + bed + "', " + price + ")";
 
                 fn.setData(query, "Đã thêm phòng");
+
+                /*fn.setData("sp_ins_rooms", new List<SqlParameter>()
+                {
+                    new SqlParameter("@roomNo", roomno),
+                    new SqlParameter("@booked", 0),
+                    new SqlParameter("@typeid", )
+                })*/
 
                 UC_AddRoom_Load(this, null);
                 clearAll();
