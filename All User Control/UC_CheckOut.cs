@@ -21,8 +21,8 @@ namespace HotelManagement.All_User_Control
 
         private void UC_CheckOut_Load(object sender, EventArgs e)
         {
-            query = "select customer.cid, customer.cname, customer.mobile, customer.nationality, customer.gender, customer.dob, customer.idproof, customer.address, rooms.roomNo, roomtypes.typedescription, roomtypes.numbersofbed, roomtypes.price" +
-                " from customer inner join rooms on customer.roomid = rooms.roomid inner join roomtypes on roomtypes.typeid = rooms.typeid inner join book on customer.cid = book.cid" +
+            query = "select customer.cid, customer.cname, customer.mobile, customer.nationality, customer.gender, customer.dob, customer.idproof, customer.address, rooms.roomNo, roomtypes.typedescription, roomtypes.price" +
+                " from customer inner join book on customer.cid = book.cid inner join rooms on book.roomid = rooms.roomid inner join roomtypes on roomtypes.typeid = rooms.typeid" +
                 " where book.ischeckedout = 0";
             DataSet ds = fn.getData(query);
             dgwCheckOut.DataSource = ds.Tables[0];
@@ -30,8 +30,8 @@ namespace HotelManagement.All_User_Control
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            query = "select customer.cid, customer.cname, customer.mobile, customer.nationality, customer.gender, customer.dob, customer.idproof, customer.address, rooms.roomNo, roomtypes.typedescription, roomtypes.numbersofbed, roomtypes.price" +
-                " from customer inner join rooms on customer.roomid = rooms.roomid inner join roomtypes on roomtypes.typeid = rooms.typeid inner join book on customer.cid = book.cid" +
+            query = "select customer.cid, customer.cname, customer.mobile, customer.nationality, customer.gender, customer.dob, customer.idproof, customer.address, rooms.roomNo, roomtypes.typedescription, roomtypes.price" +
+                " from customer inner join book on customer.cid = book.cid inner join rooms on book.roomid = rooms.roomid inner join roomtypes on roomtypes.typeid = rooms.typeid" +
                 " where cname like '" + txtName.Text + "' and ischeckedout = 0";
             DataSet ds = fn.getData(query);
             dgwCheckOut.DataSource = ds.Tables[0];
